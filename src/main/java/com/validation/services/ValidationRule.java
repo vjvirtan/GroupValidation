@@ -1,15 +1,16 @@
-package com.validation.dto;
+package com.validation.services;
 
 import java.util.*;
 
-import com.fasterxml.jackson.annotation.*;
-import com.validation.services.*;
+import org.springframework.data.mongodb.core.mapping.*;
 
 import lombok.*;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+// TODO: TRANSFER METHODS TO THE SERVICE
+@Document
 @Builder
-public record ValidationRuleDto(boolean mandatory,
+public record ValidationRule(
+        boolean mandatory,
         boolean unique,
         double max,
         double min,

@@ -1,18 +1,20 @@
 package com.validation.dao;
 
 import java.util.*;
-
 import org.springframework.data.mongodb.core.mapping.*;
 
-import com.validation.service.*;
+import com.validation.services.*;
 
 import lombok.*;
+import lombok.Builder;
 
 @Document
 @Builder
 @Getter
-public class Dictionary {
+@Setter
+public class FieldDictionary extends UUIDGen {
   private String key;
-  private Map<Locale, String> translations;
+  private List<Category> categories;
+  private List<ValuePair<String, String>> translations;
   private ValidationRule validationRule;
 }

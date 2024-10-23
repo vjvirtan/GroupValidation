@@ -6,10 +6,11 @@ import lombok.*;
 
 @Getter
 public class ValidationException extends RuntimeException {
-  private List<ValidationError<?, ?>> errorMessages;
+  private ValidationErrors errorMessages;
 
-  public ValidationException(List<ValidationError<?, ?>> messages) {
+  public ValidationException(List<ValidationError<String, String>> messages) {
     super("Errors has occured: ");
-    this.errorMessages = messages;
+    errorMessages = new ValidationErrors(messages);
+
   }
 }
